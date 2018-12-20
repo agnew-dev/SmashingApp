@@ -1,0 +1,30 @@
+.new-overlay-modal-nav {
+    height: 24px;
+    border-bottom: 1px solid #6a6a6a;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 24px auto auto;
+    ul {
+        display: grid;
+        grid-template-columns: 85% auto;
+        padding: 5px;
+        justify-self: right;
+        list-style:  none;
+        list-style-type: none;
+        margin: -5px 5px 0 0;
+        padding: 0;
+        :hover {
+            color: white;
+            font-weight: 700;
+        }
+        li {
+            color: #9b9b9b;
+            font-weight: 500;
+            font-size: 14pt;
+            cursor: pointer;
+            
+        }
+        
+    }
+}
+

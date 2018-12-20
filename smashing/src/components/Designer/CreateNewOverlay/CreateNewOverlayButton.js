@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Dialog, DialogTitle, DialogContentText, DialogContent, DialogActions, TextField, Select, MenuItem, OutlinedInput, FormControl, InputLabel, Input } from '@material-ui/core';
+import { Button, Dialog, DialogTitle, DialogContentText, DialogContent, DialogActions, TextField, Select, MenuItem, OutlinedInput, FormControl, InputLabel, Input, Divider } from '@material-ui/core';
 import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import './CreateNewOverlayButton.css';
 const { OverlayStore } = require('../../../services/OverlayStore/OverlayStore.js');
 
 const styles = theme => ({
@@ -15,6 +16,7 @@ const styles = theme => ({
 class CreateNewOverlayButton extends Component {
     state = {
         open: false,
+        overlayName: "",
     };
 
 
@@ -24,6 +26,16 @@ class CreateNewOverlayButton extends Component {
 
     handleClose = () => {
         this.setState({ open : false});
+    };
+
+    handleSubmit = () => {
+        console.log(this.state.overlayName);
+        this.state.overlayName = '';
+        this.handleClose();
+    };
+
+    handleChange = (event) => {
+        this.setState({overlayName: event.target.value});
     };
 
     render() {
@@ -40,7 +52,9 @@ class CreateNewOverlayButton extends Component {
                 >
                     <DialogActions>
                         <nav className='new-overlay-modal-nav'>
-
+                            <ul>
+                                <li onClick={this.handleClose}>x</li>
+                            </ul>
                         </nav>
                     </DialogActions>
                     <DialogContent>
@@ -49,7 +63,13 @@ class CreateNewOverlayButton extends Component {
                                 label='Layout Name'
                                 margin='normal'
                                 variant='outlined'
+                                value={this.state.overlayName}
+                                onChange={this.handleChange}
                             />
+                            <br />
+                            <Button variant='contained' color='primary' onClick={this.handleSubmit} className='new-overlay-submit-btn'>
+                                Create
+                            </Button>
                         </form>
                     </DialogContent>
                 </Dialog>
