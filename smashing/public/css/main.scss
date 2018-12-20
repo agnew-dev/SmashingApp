@@ -1,0 +1,42 @@
+.container {
+    display: grid;
+    grid-template-rows: 24px auto auto;
+    header {
+        display: grid;
+        grid-template-columns: 85% auto;
+        padding: 5px;
+        background-color: #3a3a3a;
+        strong {
+            -webkit-app-region: drag;
+            color: #b7b7b7;
+            font-size: 10pt;
+        }
+
+        nav {
+            justify-self: right;
+            :hover {
+                background-color: #6a6a6a;
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                
+                li {
+                    float: left;
+                    margin-left: 8px;
+                    margin-right: 8px;
+                    
+                    img {
+                        width: 14px;
+                        cursor: pointer;
+                        fill: #6a6a6a;
+                    }
+                    #min {
+                        margin-bottom: 50px;
+                    }
+                }
+            }
+        }
+    }
+}

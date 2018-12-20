@@ -1,0 +1,19 @@
+//Layout File
+{
+    "LayoutName" : "My Smash Layout",
+    "LayoutType" : 0,
+    "Layout": {
+
+    }
+}
+
+//LayoutTypes Definition
+{
+    //Overlay for a live match, scores are kept centered at the top
+    "LiveOverlayTopMiddle" : {
+        "Id" : 0,
+        
+    }, 
+    
+    "BetweenOverlay": 1 //Overlay for a pause between matches
+}

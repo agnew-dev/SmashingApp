@@ -1,0 +1,13 @@
+/* This is all extremely not proper, maybe find another way if it breaks */
+.overlay-move-down header {
+  margin-top: 24px;
+}
+
+.overlay-move-down .overlay-drawer .Overlay-drawerClose-8 {
+  top: 24px;
+}
+
+.overlay-move-down .overlay-drawer .Overlay-drawerOpen-7 {
+  top: 24px;
+}
+/*# sourceMappingURL=Overlay.css.map */
