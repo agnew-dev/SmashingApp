@@ -20,6 +20,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import EditIcon from '@material-ui/icons/Edit';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import Designer from '../Designer/Designer.js';
+import Controller from '../Controller/Controller.js';
 import { Grid, Tooltip } from '@material-ui/core';
 import './Overlay.css';
 
@@ -87,9 +88,24 @@ const styles = theme => ({
     
   });
 
+function MainView(props) {
+    if(props.mode === 'designer') {
+        return (
+            <Designer />
+        );
+    }
+    if(props.mode === 'controller') {
+        return (
+            <Controller />
+        );
+    }
+}
+
+
 class Overlay extends Component {
     state = {
-        open: false
+        open: false,
+        mode: 'designer'
     };
 
     handleDrawerOpen = () => {
@@ -99,6 +115,14 @@ class Overlay extends Component {
     handleDrawerClose = () => {
         this.setState({open: false});
     };
+
+    handleSelectDesigner = () => {
+        this.setState({mode : 'designer'});
+    };
+
+    handleSelectController = () => {
+        this.setState({mode: 'controller'});
+    }
 
     
     render () {
@@ -155,23 +179,24 @@ class Overlay extends Component {
                     </List>
                 </Drawer>
                 <main className={classes.content}>
-                    {/* <div className={classes.toolbar} /> */}
                     <Toolbar variant="dense" /> 
-                    <Designer />
+                    <MainView mode={this.state.mode} />
                 </main>
             </div>
         );
     }
 
+    
+
     //Handle the menu item icons
     menuItem(index) {
         if(index === 0)
             return (
-                <EditIcon />
+                <EditIcon onClick={this.handleSelectDesigner} />
             );
         if(index === 1)
             return (
-                <AssignmentIcon />
+                <AssignmentIcon onClick={this.handleSelectController} />
             );
         if(index === 2)
             return (

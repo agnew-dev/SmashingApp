@@ -3,8 +3,9 @@ const electron = require('electron');
 const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
+const express = require('express');
+let path = require("path");
 
-const path = require('path');
 const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -12,12 +13,18 @@ const url = require('url');
 let mainWindow;
 
 function createWindow() {
+    let exp = express();
+    let port = 8080;
     // Create the browser window.
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
         frame: false
     });
+
+    exp.use('/', express.static(__dirname + '/resources/graphics/bundles/'));
+
+    exp.listen(port, () => console.log(`Smashing view listening on port: ${port}!`))
 
     // and load the index.html of the app.
     mainWindow.loadURL('http://localhost:3000');

@@ -1,0 +1,88 @@
+<script>
+    
+</script>
+<head>
+    <link rel="stylesheet" href="styles/main.css" />
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+  <style>
+      #mainContent { display: none; }
+
+      .top-bar {
+        width: 75%;
+        height: 100px;
+        
+        color: white;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+      }
+
+      .left-panel{
+        width: 33.33333%;
+        height: auto;
+        float: left;
+        background: darkslategrey;
+      }
+      .center-panel{
+        width: 33.33333%;
+        height: 25px;
+        text-align: center;
+      }
+      .right-panel{
+          width: 33.33333%;
+          height: auto;
+          text-align: right;
+          background: darkslategrey;
+      }
+      .score{
+          font-size: 24pt;
+          padding: 5px;
+          background-color: purple;
+      }
+      .name {
+          padding: 5px;
+          font-size: 16pt;
+          background-color: orange;
+      }
+      .center-text {
+          background-color: grey;
+          font-size: 20pt;
+          padding: 15;
+      }
+  </style>
+</head>
+<body>
+    <div id="mainContent">
+        <div class="top-bar">
+            <div class="left-panel">
+                <span class="score">0</span>
+                <span class="name">Name</span>
+            </div>
+            <div class="center-panel">
+                <div class="center-text">
+                    Tournament <br />
+                    Name
+                </div>
+            </div>
+            <div class="right-panel">
+                <span class="name">Name</span>
+                <span class="score">0</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Do your Logic Here -->
+<script>
+    $(document).ready(function() {
+        // Start with data load logic.
+        $.getJSON("./data/test.json", function(json){
+            //$('.top-bar').html(json.firstName + " " + json.lastName);
+        });
+        // Fade in so we don't switch the text suddenly.
+        $('#mainContent').fadeIn();
+    });
+</script>
